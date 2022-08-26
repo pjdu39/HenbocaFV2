@@ -13,7 +13,7 @@ namespace HenbocaFV2
         {
             Map(x => x.Fecha).Name("Fecha");
             Map(x => x.Voltaje).Name("Voltaje");
-            Map(x => x.Corriente).Name("Corriente");
+            Map(x => x.Corriente).Name("Corriente_e");
             Map(x => x.Potencia).Name("Potencia");
         }
     }

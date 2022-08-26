@@ -10,7 +10,7 @@ namespace HenbocaFV2
 {
     public class Tabla1
     {
-        [Format("MM/dd/yyyy HH:mm:ss:fff")]
+        //[Format("MM/dd/yyyy HH:mm:ss:fff")]
         public DateTime Fecha { get; set; }
 
         public decimal? Voltaje { get; set; }

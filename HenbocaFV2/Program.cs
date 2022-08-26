@@ -4,6 +4,7 @@ using System.Linq;
 using System.IO;
 using HenbocaFV2;
 using CsvHelper.Configuration;
+using CsvHelper.TypeConversion;
 
 #region Lectura
 
@@ -16,6 +17,11 @@ using (var streamReader = new StreamReader(path))
 
     using (var csvReader = new CsvReader(streamReader, config))
     {
+        csvReader.Context.RegisterClassMap<Tabla1ClassMap>();
+
+        var options = new TypeConverterOptions { Formats = new[] { "MM/dd/yyyy HH:mm:ss:fff" } };
+        csvReader.Context.TypeConverterOptionsCache.AddOptions<DateTime>(options);
+
         records = csvReader.GetRecords<Tabla1>().ToList();
     }
 }
@@ -35,6 +41,11 @@ using (var streamWriter = new StreamWriter(path))
 
     using (var csvWriter = new CsvWriter(streamWriter, config))
     {
+        csvWriter.Context.RegisterClassMap<Tabla1ClassMap>();
+
+        var options = new TypeConverterOptions { Formats = new[] { "MM/dd/yyyy HH:mm:ss:fff" } };
+        csvWriter.Context.TypeConverterOptionsCache.AddOptions<DateTime>(options);
+
         csvWriter.WriteRecords(records);
     }
 }
