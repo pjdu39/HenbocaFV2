@@ -9,7 +9,7 @@ using CsvHelper.TypeConversion;
 #region Lectura
 
 var records = new List<Tabla1>();
-var path = @"C:\\Celena\\CSV_de_pruebas.csv";
+var path = @"C:\\Users\\celen\\ownCloud\\Proyectos\\Henboca PV\\Prototipo La Rioja\\Ensayos 2022\\Registrador\\PRUEBAVS.csv";
 
 using (var streamReader = new StreamReader(path))
 {
@@ -27,6 +27,9 @@ using (var streamReader = new StreamReader(path))
 }
 
 #endregion
+
+int Ns = 14;
+decimal? P_MPP_STC = 460; //[W]
 
 foreach (var r in records)
 {
